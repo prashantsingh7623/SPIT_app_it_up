@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "516056711501-olqp9jq1mt1885lnr4hlpmtraui76of4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "adbudh.spit",
+            "certificate_hash": "d0e82446eaeca731f999949a355fadd8ac8655b2"
+          }
+        },
+        {
           "client_id": "516056711501-ilj9ujd252lm6sat02b40aho2e97bjr2.apps.googleusercontent.com",
           "client_type": 3
         }

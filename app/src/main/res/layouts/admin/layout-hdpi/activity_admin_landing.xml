@@ -6,17 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".admin.AdminLandingActivity">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
+<!--    bottom navigation-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="successfully logged in"
-        android:textSize="15sp">
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    </com.google.android.material.textview.MaterialTextView>
+        <adbudh.spit.admin.CurvedBottomNavigationView
+            android:id="@+id/curved_bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+        </adbudh.spit.admin.CurvedBottomNavigationView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/curved_bottom_nav"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/curved_bottom_nav"
+            android:src="@drawable/create"
+            android:backgroundTint="@color/orangish"
+            app:borderWidth="0dp">
+
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -66,12 +66,13 @@
             android:gravity="center_horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="210dp"
+                android:id="@+id/input_email"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconDrawable="@drawable/icon_email"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="105dp"
                 android:layout_marginTop="10dp"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidth="0.5dp"
@@ -80,7 +81,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -96,12 +98,13 @@
             android:gravity="center_horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="210dp"
+                android:id="@+id/input_password"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/pass"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconDrawable="@drawable/icon_password"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="105dp"
                 android:layout_marginTop="10dp"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidth="0.5dp"
@@ -110,7 +113,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

@@ -1,1 +1,19 @@
-<resources></resources>
+<resources>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="department_name">Department</string>
+    <string name="name_of_event">Event name</string>
+    <string name="tag_line">Tag Line</string>
+    <string name="description">Event Description</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="venue">Venue</string>
+    <string name="duration">Duration</string>
+    <string name="committee">Organising Committee</string>
+    <string name="payment">This event is Paid</string>
+    <string name="days">Days</string>
+    <string name="poster">Upload poster</string>
+    <string name="create_event">Create Event</string>
+    <string name="add_event">Add Event</string>
+</resources>

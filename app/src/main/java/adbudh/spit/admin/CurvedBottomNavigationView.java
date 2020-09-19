@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.os.Build;
 import android.util.AttributeSet;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -15,8 +16,7 @@ public class CurvedBottomNavigationView extends BottomNavigationView {
     private Paint mPaint;
 
     /** the CURVE_CIRCLE_RADIUS represent the radius of the fab button */
-    private int CURVE_CIRCLE_RADIUS=46 ;
-
+    private int CURVE_CIRCLE_RADIUS=56 ;
 
     // the coordinates of the first curve
     private Point mFirstCurveStartPoint = new Point();
@@ -38,7 +38,6 @@ public class CurvedBottomNavigationView extends BottomNavigationView {
     public CurvedBottomNavigationView(Context context) {
         super(context);
         // CURVE_CIRCLE_RADIUS=(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 56, context.getResources().getDisplayMetrics());
-
         init();
     }
 
@@ -53,6 +52,7 @@ public class CurvedBottomNavigationView extends BottomNavigationView {
     }
 
     private void init() {
+        if (Build.VERSION.SDK_INT < 25) { CURVE_CIRCLE_RADIUS=46; }
         mPath = new Path();
         mPaint = new Paint();
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);

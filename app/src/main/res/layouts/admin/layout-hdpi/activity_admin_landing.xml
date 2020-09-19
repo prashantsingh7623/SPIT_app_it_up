@@ -79,34 +79,34 @@
     </LinearLayout>
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_recycler"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="130dp"
+        android:background="@drawable/card_top">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_poster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_search"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="125dp"
-            android:background="@drawable/card_top">
+            android:paddingBottom="60dp"
+            android:clipToPadding="false"
+            android:scrollbarStyle="outsideOverlay"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp">
+        </androidx.recyclerview.widget.RecyclerView>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_poster"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginTop="15dp"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:paddingBottom="60dp"
-                    android:clipToPadding="false"
-                    android:scrollbarStyle="outsideOverlay">
-
-                </androidx.recyclerview.widget.RecyclerView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    bottom navigation-->
     <androidx.constraintlayout.widget.ConstraintLayout

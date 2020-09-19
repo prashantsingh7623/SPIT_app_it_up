@@ -7,39 +7,44 @@
     tools:context=".admin.RegisterEvent"
     android:background="@color/orangish">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="15dp">
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@mipmap/spit_logo"
+                    android:layout_weight="1"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="30dp">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="5dp"
-                    android:src="@drawable/ic_arrow_left_black">
-
-                </com.google.android.material.imageview.ShapeableImageView>
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="35dp"
-                    android:fontFamily="@font/fira_sans"
+                    android:fontFamily="sans-serif"
                     android:text="@string/add_event"
                     android:textColor="@color/black"
-                    android:textSize="35sp">
+                    android:textSize="30sp">
 
                 </com.google.android.material.textview.MaterialTextView>
 
@@ -51,8 +56,11 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_marginTop="25dp"
-                android:background="@drawable/card_top"
-                android:padding="25dp">
+                android:background="@drawable/card_top_white"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="7dp"
+                android:paddingTop="7dp">
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -72,10 +80,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/black"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/input_description"
@@ -94,65 +102,80 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal"
-                    android:paddingTop="9dp">
+                    android:weightSum="4">
 
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/input_date"
+                    <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:fabCustomSize="45dp"
-                        android:src="@drawable/event"
-                        android:backgroundTint="@color/orangish"
-                        app:borderWidth="0dp">
+                        android:orientation="horizontal"
+                        android:layout_weight="2">
 
-                    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/input_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:fabCustomSize="45dp"
+                            android:src="@drawable/event"
+                            android:backgroundTint="@color/orangish"
+                            app:borderWidth="0dp">
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/text_date"
+                        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/text_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/date"
+                            android:textColor="@color/black"
+                            android:textSize="14sp">
+
+                        </com.google.android.material.textview.MaterialTextView>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/cabin"
-                        android:text="@string/date"
-                        android:textColor="@color/black"
-                        android:textSize="15sp">
+                        android:layout_weight="2">
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/input_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:fabCustomSize="45dp"
+                            android:src="@drawable/time"
+                            android:backgroundTint="@color/orangish"
+                            app:borderWidth="0dp">
 
-                    </com.google.android.material.textview.MaterialTextView>
+                        </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/input_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:fabCustomSize="45dp"
-                        android:layout_marginStart="32dp"
-                        android:src="@drawable/time"
-                        android:backgroundTint="@color/orangish"
-                        app:borderWidth="0dp">
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/text_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/time"
+                            android:textColor="@color/black"
+                            android:fontFamily="sans-serif"
+                            android:textSize="14sp"
+                            android:layout_gravity="center_vertical">
 
-                    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+                        </com.google.android.material.textview.MaterialTextView>
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/text_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/time"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:layout_gravity="center_vertical">
-
-                    </com.google.android.material.textview.MaterialTextView>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
-
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -194,6 +217,7 @@
                         app:boxStrokeWidth="0.8dp"
                         app:boxStrokeWidthFocused="1dp"
                         android:textColorHint="@color/black"
+                        android:fontFamily="sans-serif"
                         app:hintTextColor="@color/black">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -201,11 +225,11 @@
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
                             android:textColor="@color/black"
+                            android:fontFamily="sans-serif"
                             android:inputType="textLongMessage" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/input_committee_name"
@@ -224,6 +248,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -242,6 +267,7 @@
                         android:text="@string/payment"
                         android:layout_weight="1"
                         android:textSize="15sp"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/black"
                         android:layout_gravity="center_vertical">
 
@@ -277,6 +303,7 @@
                         android:textAllCaps="false"
                         android:backgroundTint="@color/orangish"
                         app:cornerRadius="10dp"
+                        android:fontFamily="sans-serif"
                         app:icon="@drawable/ic_upload"
                         android:layout_marginTop="5dp">
 
@@ -313,6 +340,7 @@
                     android:textColor="@color/black"
                     android:backgroundTint="@color/orangish"
                     app:cornerRadius="10dp"
+                    android:fontFamily="sans-serif"
                     android:layout_marginTop="15dp">
 
                 </com.google.android.material.button.MaterialButton>
@@ -321,6 +349,7 @@
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
+
     </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

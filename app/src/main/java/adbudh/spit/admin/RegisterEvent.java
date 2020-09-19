@@ -48,7 +48,7 @@ public class RegisterEvent extends AppCompatActivity {
             input_duration, input_venue, input_organising_committee;
 
     private SwitchMaterial switch_paid;
-    private ShapeableImageView shapeable_done, shapeable_back;
+    private ShapeableImageView shapeable_done;
 
     private MaterialButton btn_upload, btn_create_event;
     private Uri imageUri;
@@ -86,8 +86,6 @@ public class RegisterEvent extends AppCompatActivity {
 
         switch_paid = findViewById(R.id.switch_paid);
         shapeable_done = findViewById(R.id.shapeable_done);
-        shapeable_back = findViewById(R.id.image_back);
-
 
         btn_date = findViewById(R.id.input_date);
         btn_time = findViewById(R.id.input_time);
@@ -103,12 +101,12 @@ public class RegisterEvent extends AppCompatActivity {
                 showDateDialog(text_date);
             }
         });
-        shapeable_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RegisterEvent.this.finish();
-            }
-        });
+//        shapeable_back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                RegisterEvent.this.finish();
+//            }
+//        });
         btn_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,9 +133,9 @@ public class RegisterEvent extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Creating Event");
         progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.show();
 
         if(isValid && isImageUploaded) {
+            progressDialog.show();
             event_paid = "" + switch_paid.getId();
             mStorageRef.child(key+".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override

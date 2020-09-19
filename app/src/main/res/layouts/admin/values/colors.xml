@@ -4,4 +4,5 @@
     <color name="yellowish">#FDC830</color>
     <color name="orangish">#ffc107</color>
     <color name="whitish">#e2e2e2</color>
+<!--    <color name="mtrl_textinput_default_box_stroke_color">#fff</color>-->
 </resources>

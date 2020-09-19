@@ -38,7 +38,7 @@
                 android:textSize="20sp"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/fira_sans"
+                android:fontFamily="sans-serif"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="2.5">
 
@@ -70,7 +70,8 @@
                 android:paddingBottom="7dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:drawableEnd="@drawable/ic_search">
+                android:drawableEnd="@drawable/ic_search"
+                android:fontFamily="sans-serif">
             </EditText>
 
         </androidx.appcompat.widget.LinearLayoutCompat>

@@ -11,7 +11,7 @@
     <string name="venue">Venue</string>
     <string name="duration">Duration</string>
     <string name="committee">Organising Committee</string>
-    <string name="payment">This event is Paid</string>
+    <string name="payment">This event has Entry Fee</string>
     <string name="days">Days</string>
     <string name="poster">Upload poster</string>
     <string name="create_event">Create Event</string>

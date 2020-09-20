@@ -51,7 +51,8 @@ public class AdminLandingActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<modal> options =
                 new FirebaseRecyclerOptions.Builder<modal>()
-                    .setQuery( FirebaseDatabase.getInstance().getReference().child("Events"), modal.class)
+                    .setQuery(FirebaseDatabase.getInstance().getReference().child("Events").orderByChild("event_date"),
+                            modal.class)
                     .build();
 
 

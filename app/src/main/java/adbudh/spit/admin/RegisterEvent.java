@@ -26,8 +26,11 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -52,16 +55,15 @@ public class RegisterEvent extends AppCompatActivity {
 
     private MaterialButton btn_upload, btn_create_event;
     private Uri imageUri;
+
     private StorageReference mStorageRef;
-    private FirebaseStorage firebaseStorage;
+    private DatabaseReference databaseReference;
 
     private String event_name, event_desc, event_date, event_time, event_duration, event_venue,
             event_committee, event_paid;
     private boolean isValid = true, isImageUploaded = false;
 
     private String key;
-
-    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,9 +76,8 @@ public class RegisterEvent extends AppCompatActivity {
             getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
 
-        firebaseStorage = FirebaseStorage.getInstance();
-        mStorageRef = firebaseStorage.getReference();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Events").push();
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Events");
 
         input_event_name = findViewById(R.id.input_event_name);
         input_event_desc = findViewById(R.id.input_description);
@@ -151,7 +152,7 @@ public class RegisterEvent extends AppCompatActivity {
                     map.put("event_paid", event_paid);
                     map.put("posterUri", uri.toString());
 
-                    databaseReference.setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    databaseReference.push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             progressDialog.dismiss();

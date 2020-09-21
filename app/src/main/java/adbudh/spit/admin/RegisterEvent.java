@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Telephony;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.WindowManager;
@@ -73,10 +74,14 @@ public class RegisterEvent extends AppCompatActivity {
     private DatabaseReference databaseReference;
 
     private String event_name, event_desc, event_date, event_time, event_duration, event_venue,
-            event_committee, c_name, c_number, str_form;
+            event_committee, c_name, str_form;
+
+    public static String c_number;
+
     private boolean isValid = true, isImageUploaded = false;
 
     private boolean event_paid;
+    public static boolean event_created_successfully = false;
 
     private String key;
     private CoordinatorLayout layoutContent;
@@ -159,6 +164,7 @@ public class RegisterEvent extends AppCompatActivity {
         progressDialog.setMessage("Creating Event");
         progressDialog.setCanceledOnTouchOutside(false);
 
+        isValid = true;
         if(isValid && isImageUploaded) {
             progressDialog.show();
             event_paid = switch_paid.isChecked();
@@ -190,19 +196,15 @@ public class RegisterEvent extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             progressDialog.dismiss();
+                            event_created_successfully = true;
                             Toast.makeText(getApplicationContext(), "Event added successfully!", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getApplicationContext(), AdminLandingActivity.class));
-
-                            if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
-                                sendSMS();
-                            } else {
-                                requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
-                            }
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
+                            event_created_successfully = false;
                             progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Operation failed!", Toast.LENGTH_LONG).show();
                         }
@@ -210,26 +212,6 @@ public class RegisterEvent extends AppCompatActivity {
                 }
             });
         } else { Toast.makeText(getApplicationContext(), "Please upload Event Poster!", Toast.LENGTH_LONG).show(); }
-    }
-
-    private void sendSMS() {
-        for(int i=0; i<Volunteer.arrVolunteerData.size(); i++) {
-            String phone_no = Volunteer.arrVolunteerData.get(i).volunteer_contact.trim();
-            String job = Volunteer.arrVolunteerData.get(i).volunteer_job;
-            String user_name = Volunteer.arrVolunteerData.get(i).volunteer_name;
-            String message = "Hello " + user_name +
-                    "\nYou are assigned as volunteer for the " + event_name + " event" +
-                    "\nYour assigned task is - \n" + job;
-
-            try {
-                SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(phone_no, c_number, message, null, null);
-                Toast.makeText(getApplicationContext(), "Volunteers are informed", Toast.LENGTH_LONG).show();
-            } catch (Exception e) {
-                e.printStackTrace();
-                Toast.makeText(getApplicationContext(), "Error sending message!", Toast.LENGTH_LONG).show();
-            }
-        }
     }
 
     private boolean validateForm() {

@@ -34,9 +34,11 @@ public class Volunteer extends AppCompatActivity implements View.OnClickListener
     private FloatingActionButton btn_back;
     private MaterialButton btn_add, btn_submit_list;
     private LinearLayoutCompat layoutList;
-    private TextInputEditText vol_number;
+//    private TextInputEditText text_vol_number;
 
     private static final int RESULT_PICK_CONTACT = 1;
+
+    TextInputEditText vol_number;
 
     public static ArrayList<VolunteerData> arrVolunteerData = new ArrayList<>();
 
@@ -50,7 +52,7 @@ public class Volunteer extends AppCompatActivity implements View.OnClickListener
         btn_back = findViewById(R.id.btn_back_to_register);
         btn_add = findViewById(R.id.btn_add_vol);
         btn_submit_list = findViewById(R.id.btn_submit_list);
-        vol_number = findViewById(R.id.text_vol_number);
+//        text_vol_number = findViewById(R.id.text_vol_number);
 
 
         background = findViewById(R.id.background);
@@ -157,7 +159,6 @@ public class Volunteer extends AppCompatActivity implements View.OnClickListener
     }
 
     private void contactPicked(Intent data) {
-        vol_number = findViewById(R.id.text_vol_number);
         Cursor cursor;
         try {
             String phoneNo;
@@ -166,7 +167,6 @@ public class Volunteer extends AppCompatActivity implements View.OnClickListener
             cursor.moveToFirst();
             int phoneIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
             phoneNo = cursor.getString(phoneIndex);
-            Log.d("----- phone ------", phoneNo.trim());
             vol_number.setText(phoneNo.trim());
 
         } catch (Exception e) { e.printStackTrace(); }
@@ -175,7 +175,7 @@ public class Volunteer extends AppCompatActivity implements View.OnClickListener
     private void addAnotherVolunteer() {
         final View volunteerView = getLayoutInflater().inflate(R.layout.row_add_volunteer, null, false);
         TextInputLayout vol_name = volunteerView.findViewById(R.id.text_vol_name);
-        TextInputEditText vol_number = volunteerView.findViewById(R.id.text_vol_number);
+        vol_number = volunteerView.findViewById(R.id.text_vol_number);
         TextInputLayout vol_job = volunteerView.findViewById(R.id.text_vol_job);
         ShapeableImageView btn_remove_vol = volunteerView.findViewById(R.id.btn_remove_vol);
 

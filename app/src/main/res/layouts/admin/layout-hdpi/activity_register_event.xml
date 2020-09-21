@@ -1,121 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".admin.RegisterEvent"
-    android:background="@color/orangish">
+    android:background="@color/orangish"
+    android:id="@+id/layout_content">
 
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_add_volunteer"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="@color/black"
+        android:layout_margin="13dp"
+        android:src="@drawable/ic_people"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:orientation="vertical">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:src="@mipmap/spit_logo"
-                    android:layout_weight="1"/>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="10dp">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/add_event"
-                    android:textColor="@color/black"
-                    android:textSize="23sp">
-
-                </com.google.android.material.textview.MaterialTextView>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/card_top_white"
-            android:padding="15dp">
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_event_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/name_of_event"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginTop="10dp"
-                app:boxStrokeColor="@color/orangish"
-                app:boxStrokeWidth="0.8dp"
-                app:boxStrokeWidthFocused="1dp"
-                android:textColorHint="@color/black"
-                app:hintTextColor="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:fontFamily="sans-serif"
-                    android:textColor="@color/black"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/description"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginTop="10dp"
-                app:boxStrokeColor="@color/orangish"
-                app:boxStrokeWidth="0.8dp"
-                app:boxStrokeWidthFocused="1dp"
-                android:textColorHint="@color/black"
-                app:hintTextColor="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:fontFamily="sans-serif"
-                    android:textColor="@color/black"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="4">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@mipmap/spit_logo"
+                        android:layout_weight="1"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/add_event"
+                        android:textColor="@color/black"
+                        android:textSize="23sp">
+
+                    </com.google.android.material.textview.MaterialTextView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/card_top_white"
+                android:padding="15dp">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_event_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/name_of_event"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/orangish"
+                    app:boxStrokeWidth="0.8dp"
+                    app:boxStrokeWidthFocused="1dp"
+                    android:textColorHint="@color/black"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/black"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/description"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/orangish"
+                    app:boxStrokeWidth="0.8dp"
+                    app:boxStrokeWidthFocused="1dp"
+                    android:textColorHint="@color/black"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/black"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -147,7 +158,7 @@
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <androidx.appcompat.widget.LinearLayoutCompat
+                    <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2">
@@ -177,65 +188,65 @@
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_duration"
-                    android:layout_width="115dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:hint="@string/duration"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginTop="10dp"
-                    app:boxStrokeColor="@color/orangish"
-                    app:boxStrokeWidth="0.8dp"
-                    app:boxStrokeWidthFocused="1dp"
-                    android:textColorHint="@color/black"
-                    app:hintTextColor="@color/black"
-                    app:suffixText="@string/days">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:fontFamily="sans-serif"
-                        android:textColor="@color/black" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_venue"
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:hint="@string/venue"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginTop="10dp"
-                    app:boxStrokeColor="@color/orangish"
-                    app:boxStrokeWidth="0.8dp"
-                    app:boxStrokeWidthFocused="1dp"
-                    android:textColorHint="@color/black"
-                    app:hintTextColor="@color/black">
+                    android:orientation="horizontal">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_duration"
+                        android:layout_width="115dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:hint="@string/duration"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/orangish"
+                        app:boxStrokeWidth="0.8dp"
+                        app:boxStrokeWidthFocused="1dp"
+                        android:textColorHint="@color/black"
+                        app:hintTextColor="@color/black"
+                        app:suffixText="@string/days">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif"
+                            android:inputType="number"
+                            android:textColor="@color/black" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_venue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:fontFamily="sans-serif"
-                        android:textColor="@color/black"
-                        android:inputType="textLongMessage" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_marginStart="5dp"
+                        android:hint="@string/venue"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/orangish"
+                        app:boxStrokeWidth="0.8dp"
+                        app:boxStrokeWidthFocused="1dp"
+                        android:textColorHint="@color/black"
+                        app:hintTextColor="@color/black">
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/black"
+                            android:inputType="textLongMessage" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/input_committee_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -256,7 +267,7 @@
                         android:textColor="@color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/switch_payment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -292,68 +303,124 @@
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_form_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/form_link"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/orangish">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/black"
+                        android:inputType="textWebEditText"
+                        android:autoLink="web" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_creator_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/your_name"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/orangish"
+                        app:boxStrokeWidth="0.8dp"
+                        app:boxStrokeWidthFocused="1dp"
+                        android:textColorHint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif"
+                            android:inputType="textLongMessage"
+                            android:textColor="@color/black"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_creator_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/contact"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/orangish"
+                        app:boxStrokeWidth="0.8dp"
+                        app:boxStrokeWidthFocused="1dp"
+                        android:textColorHint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:layout_weight="1"
+                        android:layout_marginStart="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:inputType="number"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/black"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_upload"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="@string/poster"
+                        android:textColor="@color/black"
+                        android:fontFamily="sans-serif"
+                        android:textAllCaps="false"
+                        android:textSize="12sp"
+                        android:backgroundTint="@color/orangish"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/ic_upload"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp">
+
+                    </com.google.android.material.button.MaterialButton>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_upload"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/button_create_event"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:text="@string/poster"
+                    android:text="@string/create_event"
+                    android:fontFamily="sans-serif-medium"
                     android:textColor="@color/black"
-                    android:fontFamily="sans-serif"
-                    android:textAllCaps="false"
                     android:backgroundTint="@color/orangish"
                     app:cornerRadius="10dp"
-                    app:icon="@drawable/ic_upload"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1">
+                    android:layout_marginTop="15dp">
 
                 </com.google.android.material.button.MaterialButton>
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/shapeable_done"
-                    android:visibility="invisible"
-                    android:layout_width="34dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_done_all"
-                    android:backgroundTint="@color/orangish"
-                    android:layout_gravity="center_vertical">
-
-                </com.google.android.material.imageview.ShapeableImageView>
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="45dp"
-                    android:background="@drawable/ic_eye_24dp"
-                    android:backgroundTint="@color/orangish"
-                    android:layout_gravity="center_vertical">
-
-                </com.google.android.material.imageview.ShapeableImageView>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_create_event"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="@string/create_event"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="@color/black"
-                android:backgroundTint="@color/orangish"
-                app:cornerRadius="10dp"
-                android:layout_marginTop="15dp">
-
-                </com.google.android.material.button.MaterialButton>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
 
-</ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

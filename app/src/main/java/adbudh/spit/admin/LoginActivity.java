@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -54,10 +55,8 @@ public class LoginActivity extends AppCompatActivity {
                 TextInputLayout input_password = findViewById(R.id.input_password);
                 email = input_email.getEditText().getText().toString();
                 password = input_password.getEditText().getText().toString();
-                if(email == null) {
-                    Toast.makeText(LoginActivity.this, "Please enter email!", Toast.LENGTH_SHORT).show();
-                } else if (password == null) {
-                    Toast.makeText(LoginActivity.this, "Please enter password!", Toast.LENGTH_SHORT).show();
+                if(email.equals("") || password.equals("")) {
+                    Toast.makeText(LoginActivity.this, "Incorrect credentials!", Toast.LENGTH_SHORT).show();
                 } else {
                     signIn(email, password);
                 }
@@ -83,10 +82,16 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                         } else {
                             progressDialog.dismiss();
+                            Log.d("-----auth-----", email + " and " + password);
                             Toast.makeText(LoginActivity.this, "Incorrect email or password!", Toast.LENGTH_LONG).show();
                         }
                     }
-                });
+                }).addOnFailureListener(this, new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(LoginActivity.this, "Internet Connection Error!", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override

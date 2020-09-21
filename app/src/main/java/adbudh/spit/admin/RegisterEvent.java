@@ -3,16 +3,27 @@ package adbudh.spit.admin;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.res.ResourcesCompat;
 
+import android.Manifest;
+import android.animation.Animator;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Telephony;
+import android.telephony.SmsManager;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -24,6 +35,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.database.DataSnapshot;
@@ -37,6 +49,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.UUID;
@@ -48,22 +61,25 @@ public class RegisterEvent extends AppCompatActivity {
     private FloatingActionButton btn_date, btn_time;
     private MaterialTextView text_date, text_time;
     private TextInputLayout input_event_name, input_event_desc,
-            input_duration, input_venue, input_organising_committee;
+            input_duration, input_venue, input_organising_committee, form_link, creator_name, creator_number;
 
     private SwitchMaterial switch_paid;
-    private ShapeableImageView shapeable_done;
 
     private MaterialButton btn_upload, btn_create_event;
+    private FloatingActionButton btn_add_volunteer;
     private Uri imageUri;
 
     private StorageReference mStorageRef;
     private DatabaseReference databaseReference;
 
     private String event_name, event_desc, event_date, event_time, event_duration, event_venue,
-            event_committee, event_paid;
+            event_committee, c_name, c_number, str_form;
     private boolean isValid = true, isImageUploaded = false;
 
+    private boolean event_paid;
+
     private String key;
+    private CoordinatorLayout layoutContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +92,8 @@ public class RegisterEvent extends AppCompatActivity {
             getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
 
+        layoutContent = findViewById(R.id.layout_content);
+
         mStorageRef = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Events");
 
@@ -84,14 +102,19 @@ public class RegisterEvent extends AppCompatActivity {
         input_venue = findViewById(R.id.input_venue);
         input_duration = findViewById(R.id.input_duration);
         input_organising_committee = findViewById(R.id.input_committee_name);
+        form_link = findViewById(R.id.text_form_link);
+        creator_name = findViewById(R.id.text_creator_name);
+        creator_number = findViewById(R.id.text_creator_number);
+        form_link = findViewById(R.id.text_form_link);
 
         switch_paid = findViewById(R.id.switch_paid);
-        shapeable_done = findViewById(R.id.shapeable_done);
+//        shapeable_done = findViewById(R.id.shapeable_done);
 
         btn_date = findViewById(R.id.input_date);
         btn_time = findViewById(R.id.input_time);
         btn_upload = findViewById(R.id.button_upload);
         btn_create_event = findViewById(R.id.button_create_event);
+        btn_add_volunteer = findViewById(R.id.floating_add_volunteer);
 
         text_date = findViewById(R.id.text_date);
         text_time = findViewById(R.id.text_time);
@@ -102,12 +125,6 @@ public class RegisterEvent extends AppCompatActivity {
                 showDateDialog(text_date);
             }
         });
-//        shapeable_back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                RegisterEvent.this.finish();
-//            }
-//        });
         btn_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,6 +144,13 @@ public class RegisterEvent extends AppCompatActivity {
             }
         });
 
+        btn_add_volunteer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Volunteer.class));
+            }
+        });
+
     }
 
     private void createEvent() {
@@ -137,11 +161,12 @@ public class RegisterEvent extends AppCompatActivity {
 
         if(isValid && isImageUploaded) {
             progressDialog.show();
-            event_paid = "" + switch_paid.getId();
+            event_paid = switch_paid.isChecked();
             mStorageRef.child(key+".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
                     HashMap map = new HashMap();
+                    HashMap volunteer_map = new HashMap();
                     map.put("event_name", event_name);
                     map.put("event_desc", event_desc);
                     map.put("event_date", event_date);
@@ -151,6 +176,15 @@ public class RegisterEvent extends AppCompatActivity {
                     map.put("event_committee", event_committee);
                     map.put("event_paid", event_paid);
                     map.put("posterUri", uri.toString());
+                    map.put("event_creator_name", c_name);
+                    map.put("event_creator_number", c_number);
+                    map.put("form_link", str_form);
+
+                    for(int i=0; i<Volunteer.arrVolunteerData.size(); i++) {
+                        volunteer_map.put("volunteer" + i, Volunteer.arrVolunteerData.get(i));
+                    }
+
+                    map.put("event_volunteers", volunteer_map);
 
                     databaseReference.push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -158,6 +192,12 @@ public class RegisterEvent extends AppCompatActivity {
                             progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Event added successfully!", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getApplicationContext(), AdminLandingActivity.class));
+
+                            if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+                                sendSMS();
+                            } else {
+                                requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
+                            }
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
@@ -170,6 +210,26 @@ public class RegisterEvent extends AppCompatActivity {
                 }
             });
         } else { Toast.makeText(getApplicationContext(), "Please upload Event Poster!", Toast.LENGTH_LONG).show(); }
+    }
+
+    private void sendSMS() {
+        for(int i=0; i<Volunteer.arrVolunteerData.size(); i++) {
+            String phone_no = Volunteer.arrVolunteerData.get(i).volunteer_contact.trim();
+            String job = Volunteer.arrVolunteerData.get(i).volunteer_job;
+            String user_name = Volunteer.arrVolunteerData.get(i).volunteer_name;
+            String message = "Hello " + user_name +
+                    "\nYou are assigned as volunteer for the " + event_name + " event" +
+                    "\nYour assigned task is - \n" + job;
+
+            try {
+                SmsManager smsManager = SmsManager.getDefault();
+                smsManager.sendTextMessage(phone_no, c_number, message, null, null);
+                Toast.makeText(getApplicationContext(), "Volunteers are informed", Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "Error sending message!", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     private boolean validateForm() {
@@ -223,6 +283,26 @@ public class RegisterEvent extends AppCompatActivity {
             input_organising_committee.setErrorEnabled(false);
         }
 
+        if (creator_name.getEditText().getText().toString().equals("")) {
+            creator_name.setError("required!");
+            isValid = false;
+        } else {
+            c_name = creator_name.getEditText().getText().toString();
+            creator_name.setErrorEnabled(false);
+        }
+
+        if (creator_number.getEditText().getText().toString().equals("")) {
+            creator_number.setError("required!");
+            isValid = false;
+        } else {
+            c_number = creator_number.getEditText().getText().toString();
+            creator_number.setErrorEnabled(false);
+        }
+
+        if (form_link.getEditText().getText().toString().equals("")) {
+            str_form = "";
+        } else { str_form = form_link.getEditText().getText().toString(); }
+
         return isValid;
     }
 
@@ -260,7 +340,7 @@ public class RegisterEvent extends AppCompatActivity {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         pd.dismiss();
                         Snackbar.make(findViewById(android.R.id.content), "Image Uploaded", Snackbar.LENGTH_LONG).show();
-                        shapeable_done.setVisibility(View.VISIBLE);
+//                        shapeable_done.setVisibility(View.VISIBLE);
                         isImageUploaded = true;
 
                     }

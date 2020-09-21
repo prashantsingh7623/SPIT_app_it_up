@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".admin.RegisterEvent"
-    android:background="@color/orangish">
+    android:background="@color/orangish"
+    android:id="@+id/layout_content">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_add_volunteer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="@color/black"
+        android:layout_margin="13dp"
+        android:src="@drawable/ic_people"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +57,7 @@
                         android:fontFamily="sans-serif"
                         android:text="@string/add_event"
                         android:textColor="@color/black"
-                        android:textSize="27sp">
+                        android:textSize="23sp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -58,14 +66,13 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/card_top_white"
-                android:padding="20dp">
+                android:padding="15dp">
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -84,7 +91,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:fontFamily="sans-serif"
                         android:textColor="@color/black"/>
 
@@ -107,7 +114,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:fontFamily="sans-serif"
                         android:textColor="@color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -129,7 +136,7 @@
                             android:id="@+id/input_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:fabCustomSize="45dp"
+                            app:fabCustomSize="40dp"
                             android:src="@drawable/event"
                             android:backgroundTint="@color/orangish"
                             app:borderWidth="0dp">
@@ -145,7 +152,7 @@
                             android:fontFamily="sans-serif"
                             android:text="@string/date"
                             android:textColor="@color/black"
-                            android:textSize="14sp">
+                            android:textSize="12sp">
 
                         </com.google.android.material.textview.MaterialTextView>
 
@@ -159,7 +166,7 @@
                             android:id="@+id/input_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:fabCustomSize="45dp"
+                            app:fabCustomSize="40dp"
                             android:src="@drawable/time"
                             android:backgroundTint="@color/orangish"
                             app:borderWidth="0dp">
@@ -172,9 +179,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:text="@string/time"
-                            android:textColor="@color/black"
                             android:fontFamily="sans-serif"
-                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
                             android:layout_gravity="center_vertical">
 
                         </com.google.android.material.textview.MaterialTextView>
@@ -207,8 +214,9 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:fontFamily="sans-serif"
+                            android:inputType="number"
                             android:textColor="@color/black" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -230,14 +238,13 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:fontFamily="sans-serif"
                             android:textColor="@color/black"
                             android:inputType="textLongMessage" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/input_committee_name"
@@ -255,7 +262,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:fontFamily="sans-serif"
                         android:textColor="@color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -274,7 +281,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/payment"
                         android:layout_weight="1"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         android:fontFamily="sans-serif"
                         android:textColor="@color/black"
                         android:layout_gravity="center_vertical">
@@ -296,6 +303,81 @@
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_form_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/form_link"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/orangish">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/black"
+                        android:inputType="textWebEditText"
+                        android:autoLink="web" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_creator_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/your_name"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/orangish"
+                        app:boxStrokeWidth="0.8dp"
+                        app:boxStrokeWidthFocused="1dp"
+                        android:textColorHint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif"
+                            android:inputType="textLongMessage"
+                            android:textColor="@color/black"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_creator_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/contact"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/orangish"
+                        app:boxStrokeWidth="0.8dp"
+                        app:boxStrokeWidthFocused="1dp"
+                        android:textColorHint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:layout_weight="1"
+                        android:layout_marginStart="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:inputType="number"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/black"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -306,36 +388,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:text="@string/poster"
-                        android:textSize="16sp"
                         android:textColor="@color/black"
+                        android:fontFamily="sans-serif"
                         android:textAllCaps="false"
+                        android:textSize="12sp"
                         android:backgroundTint="@color/orangish"
                         app:cornerRadius="10dp"
                         app:icon="@drawable/ic_upload"
-                        android:fontFamily="sans-serif"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp">
 
                     </com.google.android.material.button.MaterialButton>
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/shapeable_done"
-                        android:visibility="invisible"
-                        android:layout_width="44dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/ic_done_all"
-                        android:backgroundTint="@color/orangish">
-
-                    </com.google.android.material.imageview.ShapeableImageView>
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:background="@drawable/ic_eye_24dp"
-                        android:backgroundTint="@color/orangish"
-                        android:layout_gravity="center_vertical">
-
-                    </com.google.android.material.imageview.ShapeableImageView>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -343,15 +406,15 @@
                     android:id="@+id/button_create_event"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:textSize="17sp"
                     android:text="@string/create_event"
+                    android:fontFamily="sans-serif-medium"
                     android:textColor="@color/black"
                     android:backgroundTint="@color/orangish"
                     app:cornerRadius="10dp"
-                    android:fontFamily="sans-serif-medium"
                     android:layout_marginTop="15dp">
 
                 </com.google.android.material.button.MaterialButton>
+
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -359,4 +422,5 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

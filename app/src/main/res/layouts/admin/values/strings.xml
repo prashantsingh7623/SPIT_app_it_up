@@ -20,4 +20,13 @@
     <string name="dummy_text">Dummy Text</string>
     <string name="dummy_date">15/02/2010</string>
     <string name="upcoming_events">Upcoming Events</string>
+    <string name="contact_details">Contact details</string>
+    <string name="form_link">Google form link</string>
+    <string name="add_volunteers">Add Volunteers</string>
+    <string name="add">Add</string>
+    <string name="name">Name</string>
+    <string name="contact">Contact no.</string>
+    <string name="job_ass">Job Assigned</string>
+    <string name="submit_list">Submit List</string>
+    <string name="your_name">Your name</string>
 </resources>

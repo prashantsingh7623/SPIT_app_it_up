@@ -22,12 +22,11 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="100dp"
-                android:layout_height="110dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="15dp"
                 android:layout_marginStart="15dp"
                 android:src="@mipmap/spit_logo">
 
@@ -67,14 +66,14 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_email"
-                android:layout_width="210dp"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconDrawable="@drawable/icon_email"
-                android:layout_marginStart="125dp"
-                android:layout_marginTop="30dp"
-                app:boxStrokeColor="@color/orangish"
+                android:layout_marginStart="95dp"
+                android:layout_marginTop="10dp"
+                app:boxStrokeColor="@color/black"
                 app:boxStrokeWidth="0.5dp"
                 android:textColorHint="@color/black"
                 app:hintTextColor="@color/black">
@@ -83,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:fontFamily="sans-serif"
                     android:textColor="@color/black"/>
 
@@ -102,14 +101,14 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_password"
-                android:layout_width="210dp"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/pass"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconDrawable="@drawable/icon_password"
-                android:layout_marginStart="125dp"
-                android:layout_marginTop="20dp"
-                app:boxStrokeColor="@color/orangish"
+                android:layout_marginStart="95dp"
+                android:layout_marginTop="10dp"
+                app:boxStrokeColor="@color/black"
                 app:boxStrokeWidth="0.5dp"
                 android:textColorHint="@color/black"
                 app:hintTextColor="@color/black">

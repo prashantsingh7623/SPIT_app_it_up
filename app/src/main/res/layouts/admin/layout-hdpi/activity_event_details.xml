@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.EventDetails"
+    android:padding="5dp">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/float_btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:fabSize="mini"
+        android:layout_margin="7dp"
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="@color/white"
+        app:borderWidth="0dp"
+        android:src="@drawable/ic_arrow_left_black" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/layout_relative_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/main_img_container"
+                        android:transitionName="containerTN1"
+                        android:layout_width="match_parent"
+                        android:layout_height="230dp"
+                        android:src="@mipmap/login"
+                        android:scaleType="centerCrop" />
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="7dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:transitionName="text_dummy_ename_TN2"
+                        android:id="@+id/text_dummy_ename"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dummy_text"
+                        app:fontFamily="sans-serif"
+                        android:textSize="34sp"
+                        android:textColor="@color/black"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_dummy_desc"
+                        android:transitionName="text_dummy_desc_TN3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        app:fontFamily="sans-serif"
+                        android:text="@string/dummy_desc"
+                        android:textSize="14sp">
+
+                    </com.google.android.material.textview.MaterialTextView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/whitish">
+                </View>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_date"
+                    android:transitionName="layout_date_TN4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="7dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/text_dummy_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            app:fontFamily="sans-serif"
+                            android:text="@string/dummy_date"
+                            android:textColor="@color/black" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@color/whitish">
+
+                        </View>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/text_dummy_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:text="@string/dummy_time"
+                            app:fontFamily="sans-serif"
+                            android:textColor="@color/black" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="7dp">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dummy_venue"
+                            app:fontFamily="sans-serif"
+                            android:textSize="18sp"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/text_dummy_venue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dummy_venue_name"
+                            app:fontFamily="sans-serif"
+                            android:layout_marginStart="5dp"
+                            android:textSize="15sp"/>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/whitish">
+                </View>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_register"
+                    android:transitionName="layout_register_TN5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="7dp">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="5dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dummy_organised"
+                            android:textSize="18sp"
+                            app:fontFamily="sans-serif"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:textColor="@color/black">
+
+                        </com.google.android.material.textview.MaterialTextView>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/text_dummy_committee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:fontFamily="sans-serif"
+                            android:text="@string/dummy_committee"
+                            android:layout_marginStart="5dp"
+                            android:textSize="15sp">
+
+                        </com.google.android.material.textview.MaterialTextView>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dummy_register"
+                            android:textSize="18sp"
+                            app:fontFamily="sans-serif"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="5dp"
+                            android:layout_gravity="center_vertical">
+
+                        </com.google.android.material.textview.MaterialTextView>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/text_dummy_link"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:fontFamily="sans-serif"
+                            android:inputType="textWebEditText"
+                            android:autoLink="web"
+                            android:text="@string/link"
+                            android:layout_marginTop="5dp"
+                            android:textSize="13sp">
+
+                        </com.google.android.material.textview.MaterialTextView>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/whitish">
+                </View>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layout_queries"
+                    android:transitionName="layout_queries_TN6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="7dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:textSize="18sp"
+                        android:text="@string/for_any_queries"
+                        android:textColor="@color/black"
+                        app:fontFamily="sans-serif"
+                        />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/text_dummy_contact_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:fontFamily="sans-serif"
+                            android:text="@string/dummy_contact_name"
+                            android:textSize="15sp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/text_dummy_contact_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="7dp"
+                            android:text="@string/dummy_contact_number"
+                            android:inputType="number"
+                            android:autoLink="phone"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:fontFamily="sans-serif"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif"
+                            />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

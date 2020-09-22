@@ -88,7 +88,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="155dp"
-        android:background="@drawable/card_top">
+        android:background="@drawable/card_top_white">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_poster"
@@ -101,9 +101,7 @@
             android:paddingBottom="60dp"
             android:clipToPadding="false"
             android:scrollbarStyle="outsideOverlay"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp">
+            android:layout_marginTop="5dp">
         </androidx.recyclerview.widget.RecyclerView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

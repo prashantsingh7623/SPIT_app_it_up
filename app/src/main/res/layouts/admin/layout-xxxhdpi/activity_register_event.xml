@@ -84,7 +84,6 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/name_of_event"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginTop="10dp"
                     app:boxStrokeColor="@color/orangish"
                     app:boxStrokeWidth="0.8dp"
                     app:boxStrokeWidthFocused="1dp"

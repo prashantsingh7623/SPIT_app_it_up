@@ -24,7 +24,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import adbudh.spit.R;
 
@@ -34,7 +33,6 @@ public class Volunteer extends AppCompatActivity implements View.OnClickListener
     private FloatingActionButton btn_back;
     private MaterialButton btn_add, btn_submit_list;
     private LinearLayoutCompat layoutList;
-//    private TextInputEditText text_vol_number;
 
     private static final int RESULT_PICK_CONTACT = 1;
 
@@ -52,7 +50,6 @@ public class Volunteer extends AppCompatActivity implements View.OnClickListener
         btn_back = findViewById(R.id.btn_back_to_register);
         btn_add = findViewById(R.id.btn_add_vol);
         btn_submit_list = findViewById(R.id.btn_submit_list);
-//        text_vol_number = findViewById(R.id.text_vol_number);
 
 
         background = findViewById(R.id.background);

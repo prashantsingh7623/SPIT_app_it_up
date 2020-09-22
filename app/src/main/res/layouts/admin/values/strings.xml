@@ -18,7 +18,7 @@
     <string name="add_event">Add College Event</string>
     <string name="search_by_event">Search Event by name</string>
     <string name="dummy_text">Dummy Text</string>
-    <string name="dummy_date">15/02/2010</string>
+    <string name="dummy_date">Sat, 15–02–2020</string>
     <string name="upcoming_events">Upcoming Events</string>
     <string name="contact_details">Contact details</string>
     <string name="form_link">Google form link</string>
@@ -29,4 +29,27 @@
     <string name="job_ass">Job Assigned</string>
     <string name="submit_list">Submit List</string>
     <string name="your_name">Your name</string>
+    <string name="dummy_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a
+        galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+        but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
+        1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+        desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+
+    <string name="dummy_time">12:15 PM</string>
+    <string name="dummy_duration">Duration: </string>
+    <string name="dummy_venue">Venue - </string>
+    <string name="dummy_duration_period">3 Days</string>
+    <string name="dummy_venue_name">SPIT Room 105</string>
+    <string name="dummy_committee">ACE-COMMITTEE_SPIT</string>
+    <string name="dummy_organised">Organised By - </string>
+    <string name="dummy_register">Register here -</string>
+    <string name="link">https://ajdnfjaddjsnfluafankjasfdn</string>
+    <string name="dummy_contact_name">Prashant Singh</string>
+    <string name="dummy_contact_number">8962398721</string>
+    <string name="for_any_queries">For any queries contact - </string>
+    <string name="dummy_entry_fee">Entry Fee:</string>
+    <string name="dummy_fee">150</string>
+    <string name="Rs">\u20B9</string>
+    <string name="rs">\u20A8</string>
 </resources>

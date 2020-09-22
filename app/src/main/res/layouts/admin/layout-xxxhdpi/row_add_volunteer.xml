@@ -105,15 +105,15 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/btn_remove_vol"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/text_vol_job"
-                    android:layout_alignBottom="@id/text_vol_job"
-                    android:background="@drawable/thumb_false">
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/btn_remove_vol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/text_vol_job"
+                        android:layout_alignBottom="@id/text_vol_job"
+                        android:background="@drawable/thumb_false">
 
-                </com.google.android.material.imageview.ShapeableImageView>
+                    </com.google.android.material.imageview.ShapeableImageView>
 
             </RelativeLayout>
 

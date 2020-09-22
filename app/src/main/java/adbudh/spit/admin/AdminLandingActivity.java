@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -19,23 +20,28 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.database.FirebaseDatabase;
 
 import adbudh.spit.R;
 
-public class AdminLandingActivity extends AppCompatActivity {
+public class AdminLandingActivity extends AppCompatActivity{
 
     private FloatingActionButton btn_add_event;
     private EditText search;
     private RecyclerView recyclerView;
 
     myAdapter myadapter;
+    public static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_landing);
+
+        mContext = getBaseContext();
 
 //        making full screen
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -62,9 +68,10 @@ public class AdminLandingActivity extends AppCompatActivity {
                             modal.class)
                     .build();
 
-
         myadapter = new myAdapter(options);
         recyclerView.setAdapter(myadapter);
+
+
         if(RegisterEvent.event_created_successfully) {
             if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                 sendSMS();
@@ -73,6 +80,11 @@ public class AdminLandingActivity extends AppCompatActivity {
             }
         }
 
+
+    }
+
+    public static Context getContext() {
+        return mContext;
     }
 
     private void sendSMS() {

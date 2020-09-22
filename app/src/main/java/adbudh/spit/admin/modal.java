@@ -1,13 +1,15 @@
 package adbudh.spit.admin;
 
+import java.io.Serializable;
+
 public class modal {
     private String event_name, event_date, posterUri, event_desc,
-            event_committee, event_duration, event_time, event_venue;
+            event_committee, event_duration, event_time, event_venue, event_link, event_contact_name, event_contact_number;
 
     public modal() {
     }
 
-    public modal(String event_name, String event_date, String posterUri, String event_desc, String event_committee, String event_duration, String event_paid, String event_time, String event_venue) {
+    public modal(String event_name, String event_date, String posterUri, String event_desc, String event_committee, String event_duration, String event_paid, String event_time, String event_venue, String event_link, String event_contact_name, String event_contact_number) {
         this.event_name = event_name;
         this.event_date = event_date;
         this.posterUri = posterUri;
@@ -16,7 +18,35 @@ public class modal {
         this.event_duration = event_duration;
         this.event_time = event_time;
         this.event_venue = event_venue;
+        this.event_link = event_link;
+        this.event_contact_name = event_contact_name;
+        this.event_contact_number = event_contact_number;
     }
+
+    public String getEvent_link() {
+        return event_link;
+    }
+
+    public void setEvent_link(String event_link) {
+        this.event_link = event_link;
+    }
+
+    public String getEvent_contact_name() {
+        return event_contact_name;
+    }
+
+    public void setEvent_contact_name(String event_contact_name) {
+        this.event_contact_name = event_contact_name;
+    }
+
+    public String getEvent_contact_number() {
+        return event_contact_number;
+    }
+
+    public void setEvent_contact_number(String event_contact_number) {
+        this.event_contact_number = event_contact_number;
+    }
+
 
     public String getEvent_name() {
         return event_name;

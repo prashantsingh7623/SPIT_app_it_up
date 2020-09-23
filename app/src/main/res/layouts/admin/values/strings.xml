@@ -1,5 +1,5 @@
 <resources>
-    <string name="login">Login</string>
+    <string name="login">Admin Login</string>
     <string name="email">Email</string>
     <string name="pass">Password</string>
     <string name="department_name">Department</string>
@@ -19,7 +19,7 @@
     <string name="search_by_event">Search Event by name</string>
     <string name="dummy_text">Dummy Text</string>
     <string name="dummy_date">Sat, 15–02–2020</string>
-    <string name="upcoming_events">Upcoming Events</string>
+    <string name="upcoming_events">College Events</string>
     <string name="contact_details">Contact details</string>
     <string name="form_link">Google form link</string>
     <string name="add_volunteers">Add Volunteers</string>
@@ -52,4 +52,11 @@
     <string name="dummy_fee">150</string>
     <string name="Rs">\u20B9</string>
     <string name="rs">\u20A8</string>
+    <string name="signin_with">Student signin</string>
+    <string name="upcoming">Upcoming events</string>
+    <string name="completed_events">Completed events</string>
+    <string name="log_out">Log out</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

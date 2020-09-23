@@ -16,8 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
-        android:padding="10dp">
-
+        android:padding="15dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -26,8 +25,8 @@
             android:weightSum="4">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 android:src="@mipmap/spit_logo"
                 android:layout_weight="1"/>
 
@@ -35,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/upcoming_events"
-                android:textSize="20sp"
+                android:textSize="23sp"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/black"
                 android:fontFamily="sans-serif"
@@ -45,10 +44,11 @@
             </com.google.android.material.textview.MaterialTextView>
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image_logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_more_vert"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_exit" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -62,19 +62,20 @@
             <EditText
                 android:id="@+id/edit_text_search"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/input_search"
                 android:hint="@string/search_by_event"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:paddingTop="7dp"
+                android:fontFamily="sans-serif"
                 android:paddingBottom="7dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:drawableEnd="@drawable/ic_search"
-                android:fontFamily="sans-serif">
+                android:drawableEnd="@drawable/ic_search">
             </EditText>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
+
 
     </LinearLayout>
 
@@ -87,7 +88,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="155dp"
         android:background="@drawable/card_top_white">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -118,7 +119,7 @@
         <adbudh.spit.admin.CurvedBottomNavigationView
             android:id="@+id/curved_bottom_nav"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
@@ -131,7 +132,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="45dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/create"
             android:backgroundTint="@color/orangish"

@@ -44,10 +44,11 @@
             </com.google.android.material.textview.MaterialTextView>
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image_logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_more_vert"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_exit" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>

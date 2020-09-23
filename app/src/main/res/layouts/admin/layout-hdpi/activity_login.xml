@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".admin.LoginActivity"
-    android:background="@mipmap/login"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,15 +19,16 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center_horizontal">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="80dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
                 android:src="@mipmap/spit_logo">
 
             </com.google.android.material.imageview.ShapeableImageView>
@@ -40,14 +41,18 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/layout_logo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center_horizontal">
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/login"
                 android:fontFamily="sans-serif"
-                android:textSize="35sp"
+                android:textColor="@color/black"
+                app:fontFamily="sans-serif"
+                android:textSize="30sp"
+                android:layout_marginTop="15dp"
                 android:gravity="center_horizontal">
 
             </com.google.android.material.textview.MaterialTextView>
@@ -66,14 +71,14 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_email"
-                android:layout_width="190dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:startIconDrawable="@drawable/icon_email"
-                android:layout_marginStart="95dp"
+                app:startIconDrawable="@drawable/ic_mail_outline"
                 android:layout_marginTop="10dp"
-                app:boxStrokeColor="@color/orangish"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                app:boxStrokeColor="@color/black"
                 app:boxStrokeWidth="0.5dp"
                 android:textColorHint="@color/black"
                 app:hintTextColor="@color/black">
@@ -101,14 +106,14 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_password"
-                android:layout_width="190dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/pass"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:startIconDrawable="@drawable/icon_password"
-                android:layout_marginStart="95dp"
+                app:startIconDrawable="@drawable/ic_lock_outline"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
                 android:layout_marginTop="10dp"
-                app:boxStrokeColor="@color/orangish"
+                app:boxStrokeColor="@color/black"
                 app:boxStrokeWidth="0.5dp"
                 android:textColorHint="@color/black"
                 app:hintTextColor="@color/black">
@@ -126,27 +131,45 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layout_login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/layout_password"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:gravity="end"
-            android:padding="20dp">
+            android:layout_marginTop="25dp">
 
-            <com.google.android.material.button.MaterialButton
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/button_login"
-                android:layout_width="46dp"
-                android:layout_height="55dp"
-                app:cornerRadius="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:borderWidth="0dp"
+                android:layout_marginEnd="35dp"
                 android:backgroundTint="@color/white"
-                android:foreground="@drawable/arrow_right"
-                android:foregroundTintMode="multiply"
-                android:foregroundGravity="center">
+                android:src="@drawable/ic_right"
+                app:fabSize="mini">
 
-            </com.google.android.material.button.MaterialButton>
+            </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layout_login_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"
+            android:text="@string/signin_with"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            app:icon="@mipmap/google"
+            app:iconTint="@null"
+            app:iconGravity="start"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/black"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

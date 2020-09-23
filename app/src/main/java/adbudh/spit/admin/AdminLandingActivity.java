@@ -8,6 +8,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -23,6 +24,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import adbudh.spit.R;
@@ -32,6 +34,8 @@ public class AdminLandingActivity extends AppCompatActivity{
     private FloatingActionButton btn_add_event;
     private EditText search;
     private RecyclerView recyclerView;
+    private ShapeableImageView image_btn_logout;
+    private FirebaseAuth firebaseAuth;
 
     myAdapter myadapter;
     public static Context mContext;
@@ -42,6 +46,10 @@ public class AdminLandingActivity extends AppCompatActivity{
         setContentView(R.layout.activity_admin_landing);
 
         mContext = getBaseContext();
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        image_btn_logout = findViewById(R.id.image_logout);
+
 
 //        making full screen
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -61,6 +69,17 @@ public class AdminLandingActivity extends AppCompatActivity{
                 startActivity(new Intent(getApplicationContext(), RegisterEvent.class));
             }
         });
+
+        image_btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
 
         FirebaseRecyclerOptions<modal> options =
                 new FirebaseRecyclerOptions.Builder<modal>()

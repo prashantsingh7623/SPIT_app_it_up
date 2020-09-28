@@ -36,7 +36,7 @@ public class Volunteer extends AppCompatActivity implements View.OnClickListener
 
     private static final int RESULT_PICK_CONTACT = 1;
 
-    TextInputEditText vol_number;
+    private TextInputEditText vol_number;
 
     public static ArrayList<VolunteerData> arrVolunteerData = new ArrayList<>();
 
@@ -53,6 +53,7 @@ public class Volunteer extends AppCompatActivity implements View.OnClickListener
 
 
         background = findViewById(R.id.background);
+
         if (savedInstanceState == null) {
             background.setVisibility(View.INVISIBLE);
 

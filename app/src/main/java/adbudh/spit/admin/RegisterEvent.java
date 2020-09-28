@@ -53,6 +53,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.UUID;
 
 import adbudh.spit.R;
@@ -346,13 +347,13 @@ public class RegisterEvent extends AppCompatActivity {
 
     private void showTimeDialog(final MaterialTextView time_in) {
         final Calendar calendar=Calendar.getInstance();
-
+        final Locale id = new Locale("in", "ID");
         TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                 calendar.set(Calendar.MINUTE,minute);
-                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("hh:mm aa");
+                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("hh:mm aa", id);
                 time_in.setText(simpleDateFormat.format(calendar.getTime()));
                 text_time = time_in;
             }
@@ -363,13 +364,14 @@ public class RegisterEvent extends AppCompatActivity {
 
     private void showDateDialog(final MaterialTextView date_in) {
         final Calendar calendar=Calendar.getInstance();
+        final Locale id = new Locale("en", "IN");
         DatePickerDialog.OnDateSetListener dateSetListener=new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 calendar.set(Calendar.YEAR,year);
                 calendar.set(Calendar.MONTH,month);
                 calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("EEE, dd-MMM-yyyy");
+                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MMM-yyyy, EEE", id);
                 date_in.setText(simpleDateFormat.format(calendar.getTime()));
                 text_date = date_in;
 

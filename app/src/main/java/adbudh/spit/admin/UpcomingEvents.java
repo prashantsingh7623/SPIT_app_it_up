@@ -17,12 +17,11 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.zip.Inflater;
 
 import adbudh.spit.R;
+import adbudh.spit.base.modal;
 
 /**
  * A simple {@link Fragment} subclass.

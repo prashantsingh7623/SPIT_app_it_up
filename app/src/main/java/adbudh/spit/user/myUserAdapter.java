@@ -1,4 +1,5 @@
-package adbudh.spit.admin;
+package adbudh.spit.user;
+
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,21 +17,21 @@ import adbudh.spit.R;
 import adbudh.spit.base.EventDetails;
 import adbudh.spit.base.modal;
 
-public class myAdapter extends FirebaseRecyclerAdapter<modal, myViewHolder> {
+public class myUserAdapter extends FirebaseRecyclerAdapter<modal, myUserViewHolder> {
 
 
-    public myAdapter(@NonNull FirebaseRecyclerOptions<modal> options) {
+    public myUserAdapter(@NonNull FirebaseRecyclerOptions<modal> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myViewHolder holder, final int position, @NonNull modal model) {
-        final Context context = AdminLandingActivity.getContext();
+    protected void onBindViewHolder(@NonNull myUserViewHolder holder, final int position, @NonNull modal model) {
+        final Context context = UserLandingActivity.getContext();
         holder.title.setText(model.getEvent_name());
         holder.date.setText(model.getEvent_date());
         Picasso.get().load(model.getPosterUri()).into(holder.poster);
 
-        myViewHolder.v.setOnClickListener(new View.OnClickListener() {
+        myUserViewHolder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, EventDetails.class);
@@ -43,9 +44,10 @@ public class myAdapter extends FirebaseRecyclerAdapter<modal, myViewHolder> {
 
     @NonNull
     @Override
-    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public myUserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_poster, parent, false);
-        return new myViewHolder(view);
+        return new myUserViewHolder(view);
     }
 
 }
+

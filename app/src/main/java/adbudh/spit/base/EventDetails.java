@@ -1,4 +1,4 @@
-package adbudh.spit.admin;
+package adbudh.spit.base;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package adbudh.spit.admin;
+package adbudh.spit.base;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,9 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -25,8 +22,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -34,9 +29,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import org.w3c.dom.Text;
-
 import adbudh.spit.R;
+import adbudh.spit.admin.AdminLandingActivity;
+import adbudh.spit.user.UserLandingActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -177,8 +172,15 @@ public class LoginActivity extends AppCompatActivity {
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            Intent intent = new Intent(this, AdminLandingActivity.class);
-            startActivity(intent);
+            String admin_email = currentUser.getEmail();
+            Log.d("----email-----", admin_email);
+            if (admin_email.equals("prashant.singh@spit.ac.in")) {
+                Intent intent = new Intent(this, AdminLandingActivity.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(getApplicationContext(), UserLandingActivity.class);
+                startActivity(intent);
+            }
         }
     }
 }

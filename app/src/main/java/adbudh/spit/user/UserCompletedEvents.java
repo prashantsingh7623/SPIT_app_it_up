@@ -1,4 +1,4 @@
-package adbudh.spit.admin;
+package adbudh.spit.user;
 
 import android.content.Context;
 import android.net.Uri;
@@ -21,32 +21,33 @@ import java.util.Date;
 import java.util.Locale;
 
 import adbudh.spit.R;
+import adbudh.spit.admin.myAdapter;
 import adbudh.spit.base.modal;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CompletedEvents.OnFragmentInteractionListener} interface
+ * {@link UserCompletedEvents.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link CompletedEvents#newInstance} factory method to
+ * Use the {@link UserCompletedEvents#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CompletedEvents extends Fragment {
+public class UserCompletedEvents extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private RecyclerView recyclerView;
-    myAdapter myadapter;
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
+    private RecyclerView recyclerView;
+    myUserAdapter myadapter;
+
     private OnFragmentInteractionListener mListener;
 
-    public CompletedEvents() {
+    public UserCompletedEvents() {
         // Required empty public constructor
     }
 
@@ -56,11 +57,11 @@ public class CompletedEvents extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CompletedEvents.
+     * @return A new instance of fragment UserCompletedEvents.
      */
     // TODO: Rename and change types and number of parameters
-    public static CompletedEvents newInstance(String param1, String param2) {
-        CompletedEvents fragment = new CompletedEvents();
+    public static UserCompletedEvents newInstance(String param1, String param2) {
+        UserCompletedEvents fragment = new UserCompletedEvents();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -84,10 +85,10 @@ public class CompletedEvents extends Fragment {
         FirebaseRecyclerOptions<modal> options =
                 new FirebaseRecyclerOptions.Builder<modal>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Events").orderByChild("event_date")
-                                        .endAt(date), modal.class)
+                                .endAt(date), modal.class)
                         .build();
 
-        myadapter = new myAdapter(options);
+        myadapter = new myUserAdapter(options);
         myadapter.startListening();
     }
 
@@ -95,7 +96,7 @@ public class CompletedEvents extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_upcoming_events, container, false);
+        View view = inflater.inflate(R.layout.fragment_user_completed_events, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_poster);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(myadapter);

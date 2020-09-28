@@ -1,4 +1,4 @@
-package adbudh.spit.admin;
+package adbudh.spit.user;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,19 +9,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;;
 import com.google.android.material.tabs.TabLayout;
@@ -31,11 +27,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adbudh.spit.R;
+import adbudh.spit.admin.CompletedEvents;
 import adbudh.spit.base.LoginActivity;
+import adbudh.spit.admin.UpcomingEvents;
 
-public class AdminLandingActivity extends AppCompatActivity implements UpcomingEvents.OnFragmentInteractionListener, CompletedEvents.OnFragmentInteractionListener{
+public class UserLandingActivity extends AppCompatActivity implements UserUpcomingEvents.OnFragmentInteractionListener, UserCompletedEvents.OnFragmentInteractionListener {
 
-    private FloatingActionButton btn_add_event;
     private FloatingActionButton image_btn_logout;
     private FirebaseAuth firebaseAuth;
 
@@ -43,13 +40,13 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private CompletedEvents completedFragment;
-    private UpcomingEvents upcomingFragment;
+    private UserCompletedEvents completedFragment;
+    private UserUpcomingEvents upcomingFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_landing);
+        setContentView(R.layout.activity_user_landing);
 
         mContext = getBaseContext();
 
@@ -65,12 +62,12 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
 
-        completedFragment = new CompletedEvents();
-        upcomingFragment = new UpcomingEvents();
+        completedFragment = new UserCompletedEvents();
+        upcomingFragment = new UserUpcomingEvents();
 
         tabLayout.setupWithViewPager(viewPager);
 
-        AdminLandingActivity.ViewPagerAdapter viewPagerAdapter = new AdminLandingActivity.ViewPagerAdapter(getSupportFragmentManager(), 0);
+        UserLandingActivity.ViewPagerAdapter viewPagerAdapter = new UserLandingActivity.ViewPagerAdapter(getSupportFragmentManager(), 0);
         viewPagerAdapter.addFragment(upcomingFragment, "Upcoming");
         viewPagerAdapter.addFragment(completedFragment, "Completed");
         viewPager.setAdapter(viewPagerAdapter);
@@ -95,19 +92,11 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
             }
         });
 
-        btn_add_event = findViewById(R.id.button_add_event);
-        btn_add_event.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), RegisterEvent.class));
-            }
-        });
-
         image_btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                final AlertDialog.Builder builder = new AlertDialog.Builder(AdminLandingActivity.this);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(UserLandingActivity.this);
                 builder.setMessage("Are you sure you want to exit!");
                 builder.setCancelable(false);
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -130,38 +119,10 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
             }
         });
 
-        if(RegisterEvent.event_created_successfully) {
-            if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
-                sendSMS();
-            } else {
-                requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
-            }
-        }
-
     }
 
     public static Context getContext() {
         return mContext;
-    }
-
-    private void sendSMS() {
-        for(int i=0; i<Volunteer.arrVolunteerData.size(); i++) {
-            String phone_no = Volunteer.arrVolunteerData.get(i).volunteer_contact.trim();
-            String job = Volunteer.arrVolunteerData.get(i).volunteer_job;
-            String user_name = Volunteer.arrVolunteerData.get(i).volunteer_name;
-            String message = "Hello " + user_name +
-                    "\nYou are assigned as volunteer for the " + Volunteer.arrVolunteerData.get(i).getVolunteer_name() + " event" +
-                    "\nYour assigned task is - \n" + job;
-
-            try {
-                SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(phone_no, null, message, null, null);
-                Toast.makeText(getApplicationContext(), "Volunteers are informed", Toast.LENGTH_LONG).show();
-            } catch (Exception e) {
-                e.printStackTrace();
-                Toast.makeText(getApplicationContext(), "Error sending message!", Toast.LENGTH_LONG).show();
-            }
-        }
     }
 
     @Override
@@ -186,6 +147,7 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
     public void onFragmentInteraction(Uri uri) {
 
     }
+
 
     private class ViewPagerAdapter extends FragmentPagerAdapter {
 

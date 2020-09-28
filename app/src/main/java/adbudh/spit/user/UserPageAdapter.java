@@ -1,14 +1,17 @@
-package adbudh.spit.admin;
+package adbudh.spit.user;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class PageAdapter extends FragmentPagerAdapter {
+import adbudh.spit.admin.CompletedEvents;
+import adbudh.spit.admin.UpcomingEvents;
+
+public class UserPageAdapter extends FragmentPagerAdapter {
     int tabcount;
 
-    public PageAdapter(@NonNull FragmentManager fm, int behavior) {
+    public UserPageAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
         tabcount=behavior;
     }
@@ -19,8 +22,8 @@ public class PageAdapter extends FragmentPagerAdapter {
     {
         switch (position)
         {
-            case 0 : return new UpcomingEvents();
-            case 1 : return new CompletedEvents();
+            case 0 : return new UserUpcomingEvents();
+            case 1 : return new UserCompletedEvents();
             default: return null;
         }
     }

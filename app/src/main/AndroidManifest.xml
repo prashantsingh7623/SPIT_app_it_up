@@ -13,13 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".admin.UserLandingActivity" />
-        <activity android:name=".admin.EventDetails" />
+        <activity android:name=".user.UserLandingActivity" />
+        <activity android:name=".base.EventDetails" />
         <activity android:name=".admin.Volunteer" />
         <activity
             android:name=".admin.RegisterEvent"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".admin.LoginActivity">
+        <activity android:name=".base.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

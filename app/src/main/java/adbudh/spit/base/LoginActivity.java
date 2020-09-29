@@ -144,6 +144,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void firebaseAuthWithGoogle(String idToken) {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Authenticating...");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -151,10 +155,12 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            progressDialog.dismiss();
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
+                            progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Auth Signin Falied", Toast.LENGTH_LONG).show();
                         }
                     }

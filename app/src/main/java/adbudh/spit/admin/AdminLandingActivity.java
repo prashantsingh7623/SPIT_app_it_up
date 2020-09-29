@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,6 +38,7 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
 
     private FloatingActionButton btn_add_event;
     private FloatingActionButton image_btn_logout;
+
     private FirebaseAuth firebaseAuth;
 
     public static Context mContext;
@@ -64,6 +66,7 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
+        btn_add_event = findViewById(R.id.button_add_event);
 
         completedFragment = new CompletedEvents();
         upcomingFragment = new UpcomingEvents();
@@ -95,7 +98,6 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
             }
         });
 
-        btn_add_event = findViewById(R.id.button_add_event);
         btn_add_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

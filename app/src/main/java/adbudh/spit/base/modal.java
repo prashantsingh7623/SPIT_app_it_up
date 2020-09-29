@@ -1,15 +1,14 @@
 package adbudh.spit.base;
 
-import java.io.Serializable;
-
 public class modal {
     private String event_name, event_date, posterUri, event_desc,
-            event_committee, event_duration, event_time, event_venue, event_link, event_contact_name, event_contact_number;
+            event_committee, event_duration, event_time, event_venue, event_link,
+            event_contact_name, event_contact_number, volunteer_name, volunteer_contact;
 
     public modal() {
     }
 
-    public modal(String event_name, String event_date, String posterUri, String event_desc, String event_committee, String event_duration, String event_paid, String event_time, String event_venue, String event_link, String event_contact_name, String event_contact_number) {
+    public modal(String event_name, String event_date, String posterUri, String event_desc, String event_committee, String event_duration, String event_paid, String event_time, String event_venue, String event_link, String event_contact_name, String event_contact_number, String volunteer_name, String volunteer_contact) {
         this.event_name = event_name;
         this.event_date = event_date;
         this.posterUri = posterUri;
@@ -21,6 +20,8 @@ public class modal {
         this.event_link = event_link;
         this.event_contact_name = event_contact_name;
         this.event_contact_number = event_contact_number;
+        this.volunteer_name = volunteer_name;
+        this.volunteer_contact = volunteer_contact;
     }
 
     public String getEvent_link() {
@@ -111,5 +112,21 @@ public class modal {
 
     public void setEvent_venue(String event_venue) {
         this.event_venue = event_venue;
+    }
+
+    public String getVolunteer_name() {
+        return volunteer_name;
+    }
+
+    public void setVolunteer_name(String volunteer_name) {
+        this.volunteer_name = volunteer_name;
+    }
+
+    public String getVolunteer_contact() {
+        return volunteer_contact;
+    }
+
+    public void setVolunteer_contact(String volunteer_contact) {
+        this.volunteer_contact = volunteer_contact;
     }
 }

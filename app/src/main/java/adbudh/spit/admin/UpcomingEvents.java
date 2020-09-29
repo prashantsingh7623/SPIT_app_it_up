@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
@@ -50,9 +51,6 @@ public class UpcomingEvents extends Fragment {
         // Required empty public constructor
     }
 
-
-
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -82,7 +80,6 @@ public class UpcomingEvents extends Fragment {
         Locale id = new Locale("en", "IN");
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MMM-yyyy", id);
         String date = simpleDateFormat.format(new Date());
-        Log.d("---====date====---", date);
 
         FirebaseRecyclerOptions<modal> options =
                 new FirebaseRecyclerOptions.Builder<modal>()

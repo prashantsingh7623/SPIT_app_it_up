@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.button.MaterialButton;
 import com.squareup.picasso.Picasso;
 
 import adbudh.spit.R;
@@ -34,6 +35,17 @@ public class myAdapter extends FirebaseRecyclerAdapter<modal, myViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, EventDetails.class);
+                intent.putExtra("eventKey", getRef(position).getKey());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
+
+        MaterialButton btn_see_vol = myViewHolder.v.findViewById(R.id.btn_see_volunteers);
+        btn_see_vol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, AllVolunteers.class);
                 intent.putExtra("eventKey", getRef(position).getKey());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);

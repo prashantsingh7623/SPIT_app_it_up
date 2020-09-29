@@ -60,4 +60,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="college_events">College Events</string>
+    <string name="volunteers">Volunteers</string>
+    <string name="_8934672356">8934672356</string>
+    <string name="volunteers_assigned">Volunteers Assigned</string>
 </resources>

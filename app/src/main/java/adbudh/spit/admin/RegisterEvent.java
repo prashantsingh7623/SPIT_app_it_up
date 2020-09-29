@@ -181,7 +181,7 @@ public class RegisterEvent extends AppCompatActivity {
                     map.put("event_duration", event_duration);
                     map.put("event_venue", event_venue);
                     map.put("event_committee", event_committee);
-                    map.put("event_paid", event_paid);
+                    map.put("event_paid", event_paid+"");
                     map.put("posterUri", uri.toString());
                     map.put("event_creator_name", c_name);
                     map.put("event_creator_number", c_number);

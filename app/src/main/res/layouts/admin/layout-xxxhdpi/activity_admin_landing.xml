@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
         android:paddingStart="15dp"
-        android:paddingTop="15dp"
+        android:paddingTop="35dp"
         android:paddingEnd="15dp"
         android:background="@color/orangish">
 
@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/college_events"
-                android:textSize="23sp"
+                android:textSize="26sp"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/helvetica_neue_light"

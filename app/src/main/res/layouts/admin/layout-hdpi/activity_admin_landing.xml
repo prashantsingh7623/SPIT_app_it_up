@@ -118,6 +118,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="45dp"
                 android:layout_marginTop="10dp"
+                app:fabSize="mini"
                 android:src="@drawable/create"
                 android:backgroundTint="@color/orangish"
                 app:borderWidth="0dp">

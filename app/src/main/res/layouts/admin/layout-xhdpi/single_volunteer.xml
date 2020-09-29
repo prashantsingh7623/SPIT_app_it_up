@@ -16,28 +16,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="5dp">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_person_black" />
+
                 <TextView
                     android:id="@+id/text_all_vol_name"
-                    android:layout_width="180dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
                     android:text="@string/volunteers"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:fontFamily="sans-serif" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/ic_call_black" />
 
                 <TextView
                     android:id="@+id/text_all_vol_contact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
                     android:autoLink="phone"
                     android:text="@string/_8934672356"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:fontFamily="sans-serif" />
 
 

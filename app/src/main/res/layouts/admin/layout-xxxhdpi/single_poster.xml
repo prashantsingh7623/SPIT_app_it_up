@@ -28,7 +28,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
@@ -40,13 +40,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dummy_text"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:fontFamily="sans-serif-medium" />
                 <TextView
                     android:id="@+id/text_event_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:textSize="14sp"
                     android:fontFamily="sans-serif"
                     android:text="@string/dummy_date" />
 
@@ -62,6 +63,8 @@
                     android:id="@+id/btn_see_volunteers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:textSize="13sp"
                     android:text="@string/volunteers" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>

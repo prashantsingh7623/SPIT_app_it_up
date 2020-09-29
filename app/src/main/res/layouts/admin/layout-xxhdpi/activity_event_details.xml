@@ -13,8 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:fabSize="mini"
-        android:layout_margin="15dp"
-        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
         android:backgroundTint="@color/white"
         app:borderWidth="0dp"
         android:src="@drawable/ic_arrow_left_black" />
@@ -24,8 +23,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="20dp">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -44,11 +42,11 @@
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/main_img_container"
-                        android:transitionName="containerTN1"
                         android:layout_width="match_parent"
-                        android:layout_height="250dp"
+                        android:layout_height="240dp"
+                        android:scaleType="centerCrop"
                         android:src="@mipmap/login"
-                        android:scaleType="centerCrop" />
+                        android:transitionName="containerTN1" />
 
                 </RelativeLayout>
 
@@ -59,24 +57,24 @@
                     android:padding="10dp">
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:transitionName="text_dummy_ename_TN2"
                         android:id="@+id/text_dummy_ename"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/dummy_text"
-                        app:fontFamily="sans-serif"
-                        android:textSize="38sp"
-                        android:textColor="@color/black"/>
+                        android:fontFamily="@font/helvetica_neue_light"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"
+                        android:transitionName="text_dummy_ename_TN2" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/text_dummy_desc"
-                        android:transitionName="text_dummy_desc_TN3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        app:fontFamily="sans-serif"
                         android:text="@string/dummy_desc"
-                        android:textSize="16sp">
+                        android:textSize="14sp"
+                        android:transitionName="text_dummy_desc_TN3"
+                        app:fontFamily="sans-serif">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -85,37 +83,37 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_margin="10dp"
                     android:background="@color/whitish">
+
                 </View>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/layout_date"
-                    android:transitionName="layout_date_TN4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:transitionName="layout_date_TN4">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:padding="7dp">
+                        android:padding="10dp">
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/text_dummy_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="20sp"
-                            app:fontFamily="sans-serif"
                             android:text="@string/dummy_date"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/helvetica_neue_light"
+                            android:textSize="16sp"
+                            app:fontFamily="sans-serif" />
 
                         <View
-                            android:layout_width="1dp"
-                            android:layout_height="30dp"
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:background="@color/whitish">
@@ -126,10 +124,11 @@
                             android:id="@+id/text_dummy_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="20sp"
                             android:text="@string/dummy_time"
-                            app:fontFamily="sans-serif"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/helvetica_neue_light"
+                            android:textSize="16sp"
+                            app:fontFamily="sans-serif" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -137,25 +136,53 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:padding="7dp">
+                        android:padding="10dp">
 
 
                         <com.google.android.material.textview.MaterialTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/dummy_venue"
-                            app:fontFamily="sans-serif"
-                            android:textSize="20sp"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/helvetica_neue_light"
+                            app:fontFamily="sans-serif" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/text_dummy_venue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/dummy_venue_name"
-                            app:fontFamily="sans-serif"
                             android:layout_marginStart="5dp"
-                            android:textSize="17dp"/>
+                            android:text="@string/dummy_venue_name"
+                            android:textSize="16sp"
+                            app:fontFamily="sans-serif" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dummy_duration"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/helvetica_neue_light"
+                            app:fontFamily="sans-serif" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/text_dummy_duration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/dummy_venue_name"
+                            android:textSize="16sp"
+                            app:fontFamily="sans-serif" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -164,45 +191,46 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_margin="10dp"
                     android:background="@color/whitish">
+
                 </View>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/layout_register"
-                    android:transitionName="layout_register_TN5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:transitionName="layout_register_TN5">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="5dp">
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="150dp"
+                            android:layout_width="110dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/dummy_organised"
-                            android:textSize="20sp"
-                            app:fontFamily="sans-serif"
                             android:layout_gravity="center_vertical"
                             android:layout_marginEnd="5dp"
-                            android:textColor="@color/black">
+                            android:text="@string/dummy_organised"
+                            android:fontFamily="@font/helvetica_neue_light"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            app:fontFamily="sans-serif">
 
                         </com.google.android.material.textview.MaterialTextView>
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/text_dummy_committee"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:fontFamily="sans-serif"
-                            android:text="@string/dummy_committee"
                             android:layout_marginStart="5dp"
-                            android:textSize="17sp">
+                            android:text="@string/dummy_committee"
+                            android:textSize="16sp"
+                            app:fontFamily="sans-serif">
 
                         </com.google.android.material.textview.MaterialTextView>
 
@@ -217,26 +245,26 @@
                         <com.google.android.material.textview.MaterialTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/dummy_register"
-                            android:textSize="20sp"
-                            app:fontFamily="sans-serif"
-                            android:textColor="@color/black"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginEnd="5dp"
-                            android:layout_gravity="center_vertical">
+                            android:text="@string/dummy_register"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/helvetica_neue_light"
+                            android:textSize="16sp"
+                            app:fontFamily="sans-serif">
 
                         </com.google.android.material.textview.MaterialTextView>
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/text_dummy_link"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:fontFamily="sans-serif"
-                            android:inputType="textWebEditText"
-                            android:autoLink="web"
-                            android:textColor="@color/text_color"
-                            android:text="@string/link"
                             android:layout_marginTop="5dp"
-                            android:textSize="15sp">
+                            android:autoLink="web"
+                            android:inputType="textWebEditText"
+                            android:text="@string/link"
+                            android:textSize="15sp"
+                            app:fontFamily="sans-serif">
 
                         </com.google.android.material.textview.MaterialTextView>
 
@@ -247,28 +275,27 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_margin="10dp"
                     android:background="@color/whitish">
+
                 </View>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/layout_queries"
-                    android:transitionName="layout_queries_TN6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:transitionName="layout_queries_TN6">
 
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:textSize="20sp"
+                        android:fontFamily="@font/helvetica_neue_light"
                         android:text="@string/for_any_queries"
                         android:textColor="@color/black"
-                        app:fontFamily="sans-serif"
-                        />
+                        android:textSize="16sp"
+                        app:fontFamily="sans-serif" />
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
@@ -280,25 +307,23 @@
                             android:id="@+id/text_dummy_contact_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:fontFamily="sans-serif"
                             android:text="@string/dummy_contact_name"
-                            android:textSize="17sp"
-                            />
+                            android:textSize="16sp"
+                            app:fontFamily="sans-serif" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/text_dummy_contact_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="7dp"
-                            android:text="@string/dummy_contact_number"
-                            android:inputType="number"
                             android:autoLink="phone"
                             android:clickable="true"
                             android:focusable="true"
-                            app:fontFamily="sans-serif"
-                            android:textSize="17sp"
                             android:fontFamily="sans-serif"
-                            />
+                            android:inputType="number"
+                            android:text="@string/dummy_contact_number"
+                            android:textSize="16sp"
+                            app:fontFamily="sans-serif" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 

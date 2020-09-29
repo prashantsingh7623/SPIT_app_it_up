@@ -14,14 +14,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:backgroundTint="@color/white"
         android:src="@drawable/ic_close" />
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp">
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="40dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -35,11 +35,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/add_volunteers"
                 android:gravity="center_horizontal"
-                android:textSize="25sp"
-                app:fontFamily="sans-serif"
+                android:textSize="28sp"
+                app:fontFamily="@font/helvetica_neue_light"
                 android:textColor="@color/white"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="sans-serif" />
+                android:layout_marginBottom="15dp" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/layout_list"
@@ -55,10 +54,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/add"
                 android:fontFamily="sans-serif"
-                android:textSize="15sp"
-                android:layout_marginTop="15dp"
+                android:textSize="17sp"
                 app:icon="@drawable/ic_add"
                 app:iconGravity="end"
+                android:layout_marginTop="8dp"
                 />
 
             <com.google.android.material.button.MaterialButton
@@ -67,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/submit_list"
                 android:fontFamily="sans-serif"
-                android:textSize="15sp"
+                android:textSize="17sp"
                 app:iconGravity="end"
                 />
 

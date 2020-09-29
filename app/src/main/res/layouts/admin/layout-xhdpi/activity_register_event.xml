@@ -55,10 +55,10 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
+                        android:fontFamily="@font/helvetica_neue_light"
                         android:text="@string/add_event"
                         android:textColor="@color/black"
-                        android:textSize="23sp">
+                        android:textSize="25sp">
 
                     </com.google.android.material.textview.MaterialTextView>
 
@@ -73,8 +73,6 @@
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/card_top_white"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
                 android:padding="15dp">
 
 
@@ -212,7 +210,7 @@
                         app:boxStrokeWidthFocused="1dp"
                         android:textColorHint="@color/black"
                         app:hintTextColor="@color/black"
-                        app:suffixText="@string/days">
+                        app:suffixText="Hours">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
@@ -394,7 +392,7 @@
                         android:textColor="@color/black"
                         android:fontFamily="sans-serif"
                         android:textAllCaps="false"
-                        android:textSize="12sp"
+                        android:textSize="13sp"
                         android:backgroundTint="@color/orangish"
                         app:cornerRadius="10dp"
                         app:icon="@drawable/ic_upload"
@@ -410,7 +408,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:text="@string/create_event"
-                    android:fontFamily="sans-serif-medium"
+                    android:fontFamily="sans-serif"
+                    android:textSize="16sp"
+                    android:textAllCaps="false"
                     android:textColor="@color/black"
                     android:backgroundTint="@color/orangish"
                     app:cornerRadius="10dp"

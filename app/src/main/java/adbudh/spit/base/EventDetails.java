@@ -26,7 +26,7 @@ public class EventDetails extends AppCompatActivity {
     private FloatingActionButton btn_back;
     private ShapeableImageView main_img;
     private MaterialTextView event_name, event_desc, event_date, event_time, event_venue, event_committee,
-            event_link, event_contact_name, event_contact_number;
+            event_link, event_contact_name, event_contact_number, event_duration;
 
     private DatabaseReference databaseReference;
 
@@ -51,6 +51,7 @@ public class EventDetails extends AppCompatActivity {
         event_date = findViewById(R.id.text_dummy_date);
         event_time = findViewById(R.id.text_dummy_time);
         event_venue = findViewById(R.id.text_dummy_venue);
+        event_duration = findViewById(R.id.text_dummy_duration);
         event_committee = findViewById(R.id.text_dummy_committee);
         event_link = findViewById(R.id.text_dummy_link);
         event_contact_name = findViewById(R.id.text_dummy_contact_name);
@@ -72,6 +73,7 @@ public class EventDetails extends AppCompatActivity {
                     String eTime = snapshot.child("event_time").getValue().toString();
                     String eVenue = snapshot.child("event_venue").getValue().toString();
                     String eLink = snapshot.child("form_link").getValue().toString();
+                    String eDuration = snapshot.child("event_duration").getValue().toString() + " hours";
 
                     Picasso.get().load(imageUri).into(main_img);
                     event_name.setText(eName);
@@ -83,6 +85,7 @@ public class EventDetails extends AppCompatActivity {
                     event_link.setText(eLink);
                     event_contact_name.setText(eCreatorName);
                     event_contact_number.setText(eCreatorNumber);
+                    event_duration.setText(eDuration);
                 }
             }
 

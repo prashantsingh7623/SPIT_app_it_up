@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -156,6 +157,7 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
                     "\nYour assigned task is - \n" + job;
 
             try {
+                Log.d("--phone number---", phone_no);
                 SmsManager smsManager = SmsManager.getDefault();
                 smsManager.sendTextMessage(phone_no, null, message, null, null);
                 Toast.makeText(getApplicationContext(), "Volunteers are informed", Toast.LENGTH_LONG).show();

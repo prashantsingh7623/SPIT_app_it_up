@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.Query;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -77,14 +78,10 @@ public class UpcomingEvents extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        Locale id = new Locale("en", "IN");
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MMM-yyyy", id);
-        String date = simpleDateFormat.format(new Date());
-
         FirebaseRecyclerOptions<modal> options =
                 new FirebaseRecyclerOptions.Builder<modal>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Events")
-                                        .orderByChild("event_date").startAt(date), modal.class)
+                                        .orderByChild("date_number").startAt(0), modal.class)
                         .build();
 
         myadapter = new myAdapter(options);

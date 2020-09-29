@@ -76,15 +76,11 @@ public class CompletedEvents extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        Locale id = new Locale("en", "IN");
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MMM-yyyy", id);
-        String date = simpleDateFormat.format(new Date());
-        Log.d("---====date====---", date);
 
         FirebaseRecyclerOptions<modal> options =
                 new FirebaseRecyclerOptions.Builder<modal>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Events").orderByChild("event_date")
-                                        .endAt(date), modal.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Events")
+                                .orderByChild("date_number").endAt(-1), modal.class)
                         .build();
 
         myadapter = new myAdapter(options);

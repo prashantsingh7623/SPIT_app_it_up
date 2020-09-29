@@ -39,19 +39,23 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.Timestamp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.UUID;
@@ -74,10 +78,13 @@ public class RegisterEvent extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference databaseReference;
 
+
     private String event_name, event_desc, event_date, event_time, event_duration, event_venue,
             event_committee, c_name, str_form;
 
     public static String c_number;
+
+    Long date_number;
 
     private boolean isValid = true, isImageUploaded = false;
 
@@ -85,7 +92,6 @@ public class RegisterEvent extends AppCompatActivity {
     public static boolean event_created_successfully = false;
 
     private String key;
-    private CoordinatorLayout layoutContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +103,6 @@ public class RegisterEvent extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
-
-        layoutContent = findViewById(R.id.layout_content);
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Events");
@@ -114,7 +118,6 @@ public class RegisterEvent extends AppCompatActivity {
         form_link = findViewById(R.id.text_form_link);
 
         switch_paid = findViewById(R.id.switch_paid);
-//        shapeable_done = findViewById(R.id.shapeable_done);
 
         btn_date = findViewById(R.id.input_date);
         btn_time = findViewById(R.id.input_time);
@@ -165,6 +168,7 @@ public class RegisterEvent extends AppCompatActivity {
         progressDialog.setMessage("Creating Event");
         progressDialog.setCanceledOnTouchOutside(false);
 
+
         isValid = true;
         if(isValid && isImageUploaded) {
             progressDialog.show();
@@ -172,11 +176,12 @@ public class RegisterEvent extends AppCompatActivity {
             mStorageRef.child(key+".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
-                    HashMap map = new HashMap();
+                    HashMap<String, Object> map = new HashMap<>();
                     HashMap volunteer_map = new HashMap();
                     map.put("event_name", event_name);
                     map.put("event_desc", event_desc);
                     map.put("event_date", event_date);
+                    map.put("date_number", date_number);
                     map.put("event_time", event_time);
                     map.put("event_duration", event_duration);
                     map.put("event_venue", event_venue);
@@ -198,14 +203,13 @@ public class RegisterEvent extends AppCompatActivity {
                         public void onSuccess(Void aVoid) {
                             progressDialog.dismiss();
                             event_created_successfully = true;
-                            Toast.makeText(getApplicationContext(), "Event added successfully!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Event added successfully!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), AdminLandingActivity.class));
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            event_created_successfully = false;
                             progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Operation failed!", Toast.LENGTH_LONG).show();
                         }
@@ -375,10 +379,22 @@ public class RegisterEvent extends AppCompatActivity {
                 date_in.setText(simpleDateFormat.format(calendar.getTime()));
                 text_date = date_in;
 
+
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy EEE", id);
+                String future = sdf.format(calendar.getTime());
+                String today = sdf.format(new Date());
+                try {
+                    Date d1 = sdf.parse(today);
+                    Date d2 = sdf.parse(future);
+                    date_number = (d2.getTime() - d1.getTime());
+                    Log.d("----difference time----", (d2.getTime() - d1.getTime())+"");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
             }
         };
 
         new DatePickerDialog(RegisterEvent.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
-
 }

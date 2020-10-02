@@ -168,8 +168,6 @@ public class RegisterEvent extends AppCompatActivity {
         progressDialog.setMessage("Creating Event");
         progressDialog.setCanceledOnTouchOutside(false);
 
-
-        isValid = true;
         if(isValid && isImageUploaded) {
             progressDialog.show();
             event_paid = switch_paid.isChecked();

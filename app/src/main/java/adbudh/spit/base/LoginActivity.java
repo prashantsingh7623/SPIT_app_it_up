@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                 }).addOnFailureListener(this, new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(LoginActivity.this, "Internet Connection Error!", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Internet Connection Error!", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -182,9 +182,6 @@ public class LoginActivity extends AppCompatActivity {
             Log.d("----email-----", admin_email);
             if (admin_email.equals("prashant.singh@spit.ac.in")) {
                 Intent intent = new Intent(this, AdminLandingActivity.class);
-                startActivity(intent);
-            } else {
-                Intent intent = new Intent(getApplicationContext(), UserLandingActivity.class);
                 startActivity(intent);
             }
         }

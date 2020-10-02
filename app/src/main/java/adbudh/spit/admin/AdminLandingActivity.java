@@ -24,10 +24,18 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.google.android.material.button.MaterialButton;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +47,8 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
 
     private FloatingActionButton btn_add_event;
     private FloatingActionButton image_btn_logout;
+    private GoogleSignInClient mGoogleSignInClient;
 
-    private FirebaseAuth firebaseAuth;
 
     public static Context mContext;
 
@@ -55,15 +63,21 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
         setContentView(R.layout.activity_admin_landing);
 
         mContext = getBaseContext();
-
-        firebaseAuth = FirebaseAuth.getInstance();
         image_btn_logout = findViewById(R.id.image_btn_logout);
 
-//        making full screen
+        //        making full screen
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
+
+        // Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(getBaseContext(), gso);
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
@@ -116,10 +130,16 @@ public class AdminLandingActivity extends AppCompatActivity implements UpcomingE
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        firebaseAuth.signOut();
-                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
+                        FirebaseAuth.getInstance().signOut();
+                        mGoogleSignInClient.signOut().addOnCompleteListener(AdminLandingActivity.this, new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Intent intent = new Intent(AdminLandingActivity.this, LoginActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
                     }
                 }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
